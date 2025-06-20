@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa del Tiempo - OpenStreetMap + OpenWeatherMap</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 Mapa del Tiempo Global</h1>
+            <p>Haz clic en cualquier lugar del mapa para obtener información meteorológica</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Panel de configuración -->
+            <div class="config-panel">
+                <h3>Configuración</h3>
+                <div class="form-group">
+                    <label for="apiKey">API Key de OpenWeatherMap:</label>
+                    <input type="text" id="apiKey" placeholder="Introduce tu API Key">
+                    <button id="saveApiKey">Guardar</button>
+                </div>
+                <div class="location-info">
+                    <p><strong>Ubicación actual:</strong></p>
+                    <p id="currentLocation">Selecciona una ubicación en el mapa</p>
+                    <p id="coordinates">Lat: -, Lng: -</p>
+                </div>
+            </div>
+
+            <!-- Mapa -->
+            <div class="map-container">
+                <div id="map"></div>
+                <div class="map-controls">
+                    <button id="getCurrentLocation">📍 Mi Ubicación</button>
+                    <button id="refreshWeather">🔄 Actualizar Tiempo</button>
+                </div>
+            </div>
+
+            <!-- Panel de información meteorológica -->
+            <div class="weather-panel">
+                <div class="current-weather">
+                    <h3>Tiempo Actual</h3>
+                    <div id="currentWeatherInfo">
+                        <p>Selecciona una ubicación para ver el tiempo</p>
+                    </div>
+                </div>
+
+                <div class="forecast-section">
+                    <h3>Pronóstico 5 Días</h3>
+                    <div class="chart-container">
+                        <canvas id="temperatureChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="detailed-forecast">
+                    <h3>Pronóstico Detallado</h3>
+                    <div id="forecastDetails"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 - Datos de OpenWeatherMap | Mapa de OpenStreetMap</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
